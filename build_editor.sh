@@ -2,6 +2,8 @@
 
 PLATFORM=linuxbsd
 FLAGS=(
+    arch=x86_64
+
     # build with .net support
     module_mono_enabled=yes
 
@@ -10,12 +12,14 @@ FLAGS=(
 
     # generate debug symbols for Rider editor attachment
     dev_build=yes
+
+    precision=double
 )
 
 # build the editor with mono support
-scons -j8 platform=$PLATFORM ${FLAGS[@]}
+scons --no-cache --cache-show target=editor platform=$PLATFORM ${FLAGS[@]}
 
 # Generate glue sources
-bin/godot.$PLATFORM.editor.x86_64.mono --headless --generate-mono-glue modules/mono/glue
+#bin/godot.$PLATFORM.editor.x86_64.mono --headless --generate-mono-glue modules/mono/glue
 # Build .NET assemblies
-./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=$PLATFORM
+#./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=$PLATFORM
