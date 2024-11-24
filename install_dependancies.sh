@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# exit script on first error, 
+# (stops execution any further commands)
+set -e
+
 # get the .net pacjkage signing key
 wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -10,7 +14,7 @@ sudo apt-get update
 sudo apt remove -y dotnet* aspnetcore* netstandard*
 
 # install the .net sdk
-sudo apt install -y dotnet-sdk-8.0
+sudo apt install -y dotnet-sdk-9.0
 
 # install build requirements
 sudo apt-get install -y \
