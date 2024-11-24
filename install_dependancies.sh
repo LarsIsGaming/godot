@@ -5,9 +5,7 @@
 set -e
 
 # get the .net pacjkage signing key
-wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
+sudo add-apt-repository ppa:dotnet/backports
 
 sudo apt-get update 
 

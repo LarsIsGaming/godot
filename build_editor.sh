@@ -17,4 +17,4 @@ ln -sf $EXE ~/.local/bin/godot
 $EXE --headless --generate-mono-glue modules/mono/glue
 
 # Build .NET assemblies
-./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=linuxbsd
+./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=linuxbsd --precision=double
