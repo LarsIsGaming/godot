@@ -7,8 +7,10 @@ rm packages-microsoft-prod.deb
 
 sudo apt-get update 
 
+sudo apt remove -y dotnet* aspnetcore* netstandard*
+
 # install the .net sdk
-sudo apt-get install -y dotnet-sdk-9.0
+sudo apt install -y dotnet-sdk-8.0
 
 # install build requirements
 sudo apt-get install -y \
